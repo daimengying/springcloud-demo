@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/daimengying/springcloud-config-repo/
-#          username :
+#          username : ÓÃ»§Ãû
 #          password :
 
 server:
