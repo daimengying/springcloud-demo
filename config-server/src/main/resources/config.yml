@@ -1,0 +1,3 @@
+#为了配置中心直接访问测试  http://localhost:2001/config/default/master
+info:
+  profile: default
