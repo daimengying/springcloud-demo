@@ -1,0 +1,15 @@
+# 访问http://localhost:7001/actuator/info 指向github仓库中config-dev.yml配置信息
+spring:
+  cloud:
+    config:
+      uri: http://localhost:2001/
+      # 指定profile，对应config-server所获取的配置文件中的{profile}
+      profile: default
+       # 指定git仓库的分支，对应config-server所获取的配置文件的{label}
+      label: master
+      # 对应config-server所获取的配置文件的{application}
+      name: server-api
+    #开启总线消息更新功能
+    bus:
+      refresh:
+        enabled: true

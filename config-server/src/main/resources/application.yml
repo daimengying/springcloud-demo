@@ -1,3 +1,4 @@
+# http://localhost:2001/server-api/dev/master   指向springcloud-config-repo配置仓库中config-dev.yml
 spring:
   application:
     name: config-server
@@ -5,9 +6,26 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/daimengying/springcloud-config-repo/
-#          username : �û���
-#          password :
+          #uri必须是一个仓库，否则请求结果propertySources没有数据
+          uri: git@github.com:daimengying/springcloud-config-repo.git
+          search-paths: demo-config-repo  #仓库下的文件夹
+          username : '{cipher}c3104e29f234274b5834f830bbffd5c05d21a8083b4934252e55a003954f3713'
+          password : '{cipher}5ef62cb4af4435c80629401059442cb2b9d8fdc4e1c9b7a059db789e3014b0ad'
+
 
 server:
   port: 2001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+
+
+#Spring boot 2.0  暴露所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

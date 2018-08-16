@@ -6,7 +6,7 @@
 	<groupId>com.dmy</groupId>
 	<artifactId>springcloud-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>springcloud-demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -46,6 +46,7 @@
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>Finchley.RELEASE</version>
 				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

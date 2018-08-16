@@ -1,0 +1,5 @@
+#指定密钥信息（对称性密钥）  必须在bootstrap.yml里，否则无效
+#可以通过$ curl localhost:2001/encrypt -d daimengying加密
+#也可以Body里raw方式post http://localhost:2001/decrypt
+encrypt:
+  key: daimengying
