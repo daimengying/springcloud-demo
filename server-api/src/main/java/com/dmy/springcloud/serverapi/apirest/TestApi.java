@@ -23,10 +23,18 @@ public class TestApi {
     @Value("${str}")
     private String str;
 
+
     @GetMapping("/dc")
     public String dc() {
-//        String services = "Services: " + discoveryClient.getServices();
-//        System.out.println(services);
-        return infoName+"-----"+str;
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String services = "Services: " + discoveryClient.getServices();
+        System.out.println(services);
+        return services+":"+infoName+"-----"+str;
     }
+
+
 }

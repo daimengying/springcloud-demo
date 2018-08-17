@@ -15,8 +15,13 @@ public class TestController {
     @Autowired
     DcClient dcClient;
 
+//    @HystrixCommand(fallbackMethod = "fallback")
     @GetMapping("/getDc")
     public String dc() {
         return dcClient.getDc();
     }
+
+//    public String fallback() {
+//        return "connect to server-api timeout!";
+//    }
 }

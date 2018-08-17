@@ -24,8 +24,8 @@ eureka:
 
 
 #Spring boot 2.0  暴露所有端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"

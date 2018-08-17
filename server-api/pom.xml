@@ -64,6 +64,7 @@
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
 
+
 	</dependencies>
 
 </project>

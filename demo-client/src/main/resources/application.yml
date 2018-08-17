@@ -1,12 +1,28 @@
 spring:
-    application:
-        name: demo-client
+  application:
+    name: demo-client
 server:
   port: 8080
 
 eureka:
-    client:
-        serviceUrl:
-            defaultZone: http://localhost:1001/eureka/
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+#设置超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+      circuitBreaker:
+        requestVolumeThreshold: 5  #设置请求总数下限
+        errorThresholdPercentage: 60  #错误百分比下限
 
 
