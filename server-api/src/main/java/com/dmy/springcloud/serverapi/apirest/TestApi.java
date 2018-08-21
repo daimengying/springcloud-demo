@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,16 +26,16 @@ public class TestApi {
     private String str;
 
 
-    @GetMapping("/dc")
-    public String dc() {
-        try {
-            Thread.sleep(5000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    @PostMapping("/dc")
+    public String dc(@RequestParam(value = "num", defaultValue = "1") Integer num) {
+//        try {
+//            Thread.sleep(5000L);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
-        return services+":"+infoName+"-----"+str;
+        return services+":"+infoName+"-----"+str+"-----param->"+num;
     }
 
 

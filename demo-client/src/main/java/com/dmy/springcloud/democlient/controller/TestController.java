@@ -3,6 +3,8 @@ package com.dmy.springcloud.democlient.controller;
 import com.dmy.springcloud.democlient.server.DcClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,13 +17,9 @@ public class TestController {
     @Autowired
     DcClient dcClient;
 
-//    @HystrixCommand(fallbackMethod = "fallback")
-    @GetMapping("/getDc")
-    public String dc() {
-        return dcClient.getDc();
+    @PostMapping("/getDc")
+    public String dc(@RequestParam(value = "num", defaultValue = "1") Integer num) {
+        return dcClient.getDc(num);
     }
 
-//    public String fallback() {
-//        return "connect to server-api timeout!";
-//    }
 }

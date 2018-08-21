@@ -3,6 +3,8 @@ package com.dmy.springcloud.democlient.server;
 import com.dmy.springcloud.democlient.server.impl.DcClientImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author: daimengying
@@ -13,6 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "server-api", fallback = DcClientImpl.class)
 public interface DcClient {
 
-    @GetMapping("/dc")
-    String getDc();
+    @PostMapping("/dc")
+    String getDc( @RequestParam(value = "num", defaultValue = "1") Integer num);
 }
